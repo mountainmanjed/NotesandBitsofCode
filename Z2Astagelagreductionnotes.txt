@@ -1,0 +1,117 @@
+;1E00E First Row = Super BG
+;9071B0
+
+;H Beam 6002
+;7337a
+
+;V Beam 6006
+;7388C
+
+;Animated 16x16 
+;apparently a sprite?
+
+;SFZ2A
+;Rolento Stage
+;8x8 Layer programming
+;A5 = FF8000
+;A6 = FF8200
+01B702: 102E 0004                  move.b  ($4,A6), D0
+01B706: 323B 000A                  move.w  ($a,PC,D0.w), D1
+01B70A: 4EBB 1006                  jsr     ($6,PC,D1.w)
+
+;replace with nop or branch 600A
+;01B744: 102E 0005                  move.b  ($5,A6), D0
+;01B748: 323B 000E                  move.w  ($e,PC,D0.w), D1
+;01B74C: 4EBB 100A                  jsr     ($a,PC,D1.w)
+;
+
+;Part 1
+;Part 2
+;Part 3
+
+
+01B750: 6100 0274                  bsr     $1b9c6
+01B754: 6000 0396                  bra     $1baec	
+
+01B70E: 6000 04A8                  bra     $1bbb8
+
+;32x32 Layer programming
+;A5 = FF8000
+;A6 = FF8300
+01C560: move.b  ($4,A6), D0;Usually 2 any other number causes crashes
+01C564: move.w  ($a,PC,D0.w), D1
+01C568: jsr     ($6,PC,D1.w)
+
+;replace with nop or branch 600A
+;01C59C: move.b  ($5,A6), D0;Determine part of stage
+;01C5A0: move.w  ($e,PC,D0.w), D1
+;01C5A4: jsr     ($a,PC,D1.w)
+;
+	
+	;Stage Part 1 Round 1 and Going up
+	;Super/CC Check
+	01C5BA: 4A2D 0125                  tst.b   ($125,A5)
+	01C5BE: 6626                       bne     $1c5e6
+
+	;Switch
+	01C5C0: 4A2E 0060                  tst.b   ($60,A6)
+	01C5C4: 6620                       bne     $1c5e6
+
+	;Y Speed
+	01C5C6: 06AE 0000 8000 0054        addi.l  #$8000, ($54,A6)
+ 
+	;Height Check for Looping
+	01C5CE: 0C6E 0480 0054             cmpi.w  #$480, ($54,A6)
+	01C5D4: 6510                       bcs     $1c5e6
+
+	01C5D6: 542E 0005                  addq.b  #2, ($5,A6)
+	01C5DA: 3D7C 0400 0058             move.w  #$400, ($58,A6)
+	01C5E0: 3D7C FC00 005A             move.w  #$fc00, ($5a,A6)
+	01C5E6: 4E75                       rts
+
+	;Part 2
+	01C5E8
+	
+	
+	;Part 3
+	01C60A
+	
+	;Part 4
+	01C624
+	
+	;Part 5
+	01C640
+
+
+;************************************************************
+;************************************************************
+01C5A8: 6100 02DA                  bsr     $1c884
+	01C884: 302D 02A0                  move.w  ($2a0,A5), D0
+	01C888: 906D 0288                  sub.w   ($288,A5), D0
+	01C88C: D06D 0398                  add.w   ($398,A5), D0
+	01C890: E240                       asr.w   #1, D0
+	01C892: D06E 0008                  add.w   ($8,A6), D0
+	01C896: 6042                       bra     $1c8da
+	01C8DA: D06E 0050                  add.w   ($50,A6), D0
+	01C8DE: 1D7C 000C 003B             move.b  #$c, ($3b,A6)
+	01C8E4: B06E 0028                  cmp.w   ($28,A6), D0
+	01C8E8: 6C06                       bge     $1c8f0
+	01C8EA: 1D7C 0008 003B             move.b  #$8, ($3b,A6)
+	01C8F0: 3D40 0020                  move.w  D0, ($20,A6)
+	01C8F4: 4A2E 0003                  tst.b   ($3,A6)
+	01C8F8: 672E                       beq     $1c928
+	01C8FA: 0200 0020                  andi.b  #$20, D0
+	01C8FE: 122E 0038                  move.b  ($38,A6), D1
+	01C902: B300                       eor.b   D1, D0
+	01C904: 6622                       bne     $1c928
+	01C906: 0A2E 0020 0038             eori.b  #$20, ($38,A6)
+	01C90C: 102E 003B                  move.b  ($3b,A6), D0
+	01C910: 4EB9 0001 D78C             jsr     $1d78c.l
+	01C916: 4EB9 0001 D6BE             jsr     $1d6be.l
+	01C91C: 4EB9 0001 D6F2             jsr     $1d6f2.l
+	01C922: 4EF9 0001 D7AA             jmp     $1d7aa.l
+	01C928: 4E75                       rts
+
+	
+	
+01C5AC: 6000 038C                  bra     $1c93a
