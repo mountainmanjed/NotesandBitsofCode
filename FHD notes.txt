@@ -1,0 +1,119 @@
+0x14594 Blue Fire Intro
+
+0x65000 Huge Palette Table Start
+
+0x65040 Gold Font
+0x65060 Red Font
+0x65080 Green Font
+
+Backgrounds
+0x650C0 Results
+0x650E0 Character Select
+0x65100 How to Play
+0x65120 High Scores BG
+
+Small portraits
+0x65420 Ray
+0x65440 Feilin
+0x65460 Ryoko
+0x65480 Matlok
+0x654A0 Samchay
+0x654C0 Lee
+0x654E0 Mizoguchi
+0x65500 Jean
+0x65520 Mars
+0x65540 Yungmie
+0x65560 Zazie
+0x65580 Clown
+0x655A0 Karnov
+
+1P palettes
+0x65800 Ray
+0x65820 Feilin
+0x65840 Ryoko
+0x65860 Matlok
+0x65880 Samchay
+
+2p palettes
+0x65A00 Ray
+0x65A20 Feilin
+
+Huge Character Select Portrait
+0x66000 Ray
+0x66040 Feilin
+0x66060 Ryoko
+Matlok
+Samchay
+Lee
+Mizoguchi
+Jean
+Mars
+Yungmie
+Zazie
+Clown
+Karnov
+
+----------------------------------------------------------
+0095E2: 5279 0010 6932             addq.w  #1, $106932.l
+0095E8: 0C79 000B 0010 6932        cmpi.w  #$b, $106932.l
+0095F0: 6506                       bcs     $95f8
+0095F2: 4279 0010 6932             clr.w   $106932.l
+0095F8: 33F9 0010 6932 0010 3464   move.w  $106932.l, $103464.l
+009602: 600C                       bra     $9610
+
+Address Bus at 95E2
+A0: 10217C
+A1: 106732
+A2: 008267
+A3: 008467
+A4: 00856B
+A5: 0D0FFC
+A6: 10209C
+A7: 10F2F4
+
+A0 + $dee8; To RNG
+A1 + $0200; VS storage
+A0 + $12e8; Level Byte
+
+D0 free --
+D2 free -- 51C8 dbra
+A2 free
+
+@95E8
+4EB9 000F FEF0 4E71 4E71 4E71 4E71 4E71
+4E71 4E71 4E71 4E71 4E71 4E71 4E71 4E71
+
+@FFEF0
+45F9 0010 0064             lea $100064,A2
+141A                       move.b (A2)+,D2
+0202 000F                  andi.b #$f,D2
+B429 0200                  cmp.b ($200,A1),D2
+67F4                       beq
+4EF9 000F FFF0             jmp
+
+5279 0010 6932             addq.w  #1, $106932.l
+0C79 000D 0010 6932        cmpi.w  #$d, $106932.l
+6506                       bcs     $95f8
+4279 0010 6932             clr.w   $106932.l
+33F9 0010 6932 0010 3464   move.w  $106932.l, $103464.l
+4E75                       rts
+
+B43C 000D                  cmp.b #$c, D2
+6ECE                       bgt
+3342 0200                  move.w D2,($200,A1)
+3142 12E8                  move.w D2,($12e8,A0)
+4E75                       rts
+
+
+Character Select Timer 106732
+00D3A8:	117C 0010 0087             move.b $10, ($87,A0)
+00D8FE
+
+RNG 0x100064 ~ 0x100067
+
+
+
+-------------------------------------------------------
+Matlok Ingame
+5FCF 0000 7DA4 0510 0631 0853 0A75 0C86
+0243 0566 0774 0A84 0020 0A80 0CB4 0FE0
