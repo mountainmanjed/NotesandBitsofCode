@@ -1,0 +1,104 @@
+Power Station - Cyberbots
+Track 0 Kick Drum
+Track 1 Snare & Toms
+Track 2 Synth Bass
+Track 3 Sawtooth Lead,Sawtooth Filtered,Snare,Toms
+Track 4 Distorted Guitar,
+Track 5 String
+Track 6 String
+Track 7 Sawtooth Lead,Sawtooth Filtered 
+Track 8 Distorted Guitar
+Track 9 Orchestra Hit
+Track A Splash and China Cymbals
+Track B Blank
+Track C Blank
+Track D Blank
+Track E Blank
+Track F Hi Hat, Ride Bell
+
+Voice 0 
+Kick 0800 = 0865
+982B 08 65
+
+Voice 1
+Snare 0803 = 0866
+98F4 08 66
+990D 08 66
+994F 08 66
+9985 08 66
+99D3 08 66
+9A16 08 66
+9A72 08 66
+
+Tom 0808 = 086E
+9903 08 6E
+
+0806 = 086C
+0807 = 086D
+0808 = 086E
+0809
+
+Voice 2
+9ABE 088D
+9C11 0866
+
+Tom
+9C0A 086D
+Snare 
+9C1F 088E
+
+
+Voice 3
+
+Voice 4
+A027 0885
+
+0854 = 0885
+
+Voice 7
+A457 0895
+
+ST instruments
+Kick 1 			08 65
+Snare 1			08 66
+Snare 2 		08 67
+Rim				08 68
+Hi-Hat 			08 69
+Crash			08 6A
+China Bell		08 6B
+Tom 1			08 6C
+Tom 2			08 6D
+Floor Tom		08 6E
+Kick 2	 		08 6F
+Snare 3	 		08 70
+Timpani			08 71
+Stomp			08 72
+Native drum		08 73
+Brush			08 74
+Hyoshigi?		08 75
+Mokugyo			08 76
+Bike Bell 		08 77
+Clap 			08 78
+Bell			08 79
+Gong			08 7A
+Bongo			08 7B
+
+Brass  7E
+Brass 81
+E Guitar 1		08 83
+E Guitar 2		08 84
+D.Guitar		08 85
+Guitar			08 86
+
+
+Slap Bass 1 	08 8B
+Slap Bass 2		08 8C
+Bass 1			08 8D
+Bass 2       	08 8E 
+
+Saw 			08 95
+Blanka Lead 	08 96
+
+String 			08 99
+
+Last Instrument 08 9E
