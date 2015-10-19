@@ -1,0 +1,241 @@
+Vsav Instruments
+08 00 Kick 1
+08 01 Kick electric 303
+08 02 Kick electric
+08 03 Deep Kick Electrick
+08 04 Kick with Snare
+08 05 Snare
+08 06 Snare 
+08 07 Snare 
+08 08 Snare Electric
+08 09 Hammer Clang 1
+08 0A P.Snare Elec
+08 0B Tight Snare
+08 0C
+08 0D Tom H 1
+08 0E Tom L 1
+08 0F Tom H 2
+
+08 10 Tom L 2
+08 11 Hi Hat C
+08 12 Hi Hat O
+08 13 Hi Hat P
+08 14 Hi Hat C 2
+08 15 Hi Hat O 2
+08 16 Ride Bell
+08 17 Crash
+08 18
+08 19
+08 1A
+08 1B
+08 1C
+08 1D
+08 1E
+08 1F
+
+08 20
+08 21
+08 22
+08 23
+08 24
+08 25 Hammer Clang
+08 26 Wood Block
+08 27 
+08 28 Monkey
+08 29 Electric Drum 1
+08 2A Electric Drum 2
+08 2B 80s Synth Banjo
+08 2C Reverse
+08 2D
+08 2E Synth Bass
+08 2F Drum
+
+08 30 Rim
+08 31 
+08 32 Reverse Wind Chimes
+08 33 
+08 34 
+08 35 
+08 36 
+08 37 
+08 38 
+08 39 
+08 3A 
+08 3B 
+08 3C 
+08 3D 
+08 3E 
+08 3F 
+
+08 40 Water
+08 41 Reverse C
+08 42 Radio Chirp
+08 43 Noise percussion
+08 44 Synth Guitar
+08 45 Synth Guitar 2 a percussive sound at the end can't go past 50
+08 46 Synth Lead 
+08 47 Synth
+08 48 Synth Organ
+08 49 Percussive
+08 4A Overdrive Guitar
+08 4B Electric Guitar
+08 4C Overdrive Guitar 2
+08 4D Guitar
+08 4E Piano
+08 4F Asian plucking instrument
+
+08 50 Synth Sine
+08 51 Soft Sine
+08 52 Electric Piano
+08 53 Guitar wChorus
+08 54 Organ
+08 55 Classic Organ
+08 56 Vibraphone
+08 57 Xylophone
+08 58 Strings
+08 59 Strings Chorus
+08 5A Synth Strings/Brass?
+08 5B Brass
+08 5C Brass 2
+08 5D Flute
+08 5E Sax/trumpet
+08 5F Flute
+
+08 60 Flute Vibrato
+08 61 Lead
+08 62 Strings 
+08 63 Horror Ooh
+08 64 Choir Ooh
+08 65 Aucostic Guitar
+08 66 Dirty Lead 
+08 67 Distorted Guitar 1
+08 68 Dark Synth
+08 69 Organ 2
+08 6A
+08 6B
+08 6C
+08 6D
+08 6E
+08 6F
+
+08 70
+08 71
+08 72
+08 73
+08 74
+08 75
+08 76
+08 77 Bass wobble
+08 7A Bhudist Ooh
+
+08 7F
+
+Song port notes
+Ken add 35EE to ST location
+
+Vsav	Instrument		 ST  VSIS
+Voice 0 
+CE1D	Trumpet			982F 085E
+CEF5 	Muted Trumpet	9907 085C
+CF89	Trumpet			999B 085E
+
+Voice 1 (Drones when muted) 0877
+D099	Bass			9AAB 
+
+Voice 2 (Drones when muted) 0867
+D1F4	D.Guitar		9C06
+
+Voice 3 (Drones when muted) 0868
+D3BA	Synth			9DCC
+
+Voice 4 (Drones when muted) 0868
+D55E	Synth 2			9F70
+
+Voice 5
+D6EB	Brass			A0FD 085B
+D7BC	Muted Trumpet	A1CE 085F
+D850	Brass			A262 085B
+
+Voice 6
+D960	Kick Drum		A372 0800
+
+Voice 7
+DA2E	Snare			A440 0807
+
+Voice 8 Copies Voice 3
+
+Voice 9 Hi-Hat Close and Open Fucking son of bitch
+DABC	Hihat Op		A4CE 0815
+DAC5	Hihat Cl		A4D7 0814
+DACE	Hihat Cl		A4E0 0814
+DAD5	Hihat Op		A4E7
+DADE	Hihat Cl		A4F0 0814
+DAE3	Hihat Op		A4F5 0815
+DAEB	Hihat Cl		A4FD
+DAFE	Hihat Op		A510
+DB01	Hihat CL		A513
+DB23	Hihat Op		A535
+DB26	Hihat Cl		A538
+DB38	Hihat Op		A54A
+DB3E	Hihat Cl		A550
+DB4E	Hihat Op		A560
+DB51	Hihat Cl		A563
+DB62	Hihat Op		A574
+DB66	Hihat Cl		A578
+DB79	Hihat Op		A58B
+DB7D	Hihat Cl		A58F
+DB8D	Hihat Op		A59F
+	Hihat Cl		A5A3
+	Hihat Op		A5B3
+	Hihat Cl		A5B7
+	Hihat Op		A5CA
+	Hihat Cl		A5CD	
+	Hihat Op		A5E2
+	Hihat Cl		A5E7	
+	Hihat Op		A600
+	Hihat Cl		A608
+	Hihat Op		A613
+	Hihat Cl		A618
+	Hihat Op		A62D
+	Hihat Cl		A631	
+	Hihat Op		A641
+	Hihat Cl		A645
+	Hihat Op		A677
+	Hihat Cl		A67B
+	Hihat Op		A68B
+	Hihat Cl		A68E
+	Hihat Op		A6A4
+	Hihat Cl		A6AA
+	
+Voice A Percussion Fuck
+DCAE	Crash		A6C0 08 17
+DCC9	Tom 1		A6DB 08 0D
+DCCE	Tom 2		A6E0 08 0E
+DCD5	Crash		A6E7 08 17
+DCEE	Tom 2		A700 08 0E
+DCF3	F Tom		A705 08 0F
+	Crash		A70A 08 17
+	Tom 1		A711 08 0D
+	Tom 2		A716 08 0F
+	Crash		A71B 08 17
+	Tom 1		A722 08 0D
+	Tom 2		A727 08 0F
+	Crash		A72C 08 17
+	Tom 1		A739 08 0D
+	Tom 2		A73E 08 0F
+	Crash		A743 08 17
+	Tom 1		A74B 08 0D
+	Tom 2		A750 08 0F
+	Crash		A755 08 17
+	Hihat Op	A76C 08 13
+	F Tom		A775 08 0F
+	Crash		A77A 08 17
+	F Tom		A78D 08 0F
+	Crash		A790 08 17
+
+Voice B
+DD8D	B.Synth String	A79F 085A
+DE64	B.Trumpet		A876 085E
+DEF6	B.Synth String	A908 085A
+
+Voice C Copies voice 4
