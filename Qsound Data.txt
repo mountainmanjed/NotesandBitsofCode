@@ -1,0 +1,119 @@
+CPS2 Song Format
+instrument settings table usually 7000
+data table usually 9005
+
+Header
+00 I have no clue what the first byte does. It's 7F in sfx 
+??
+0102 0304 0506 0708 090A 0B0C 0D0E 0F10
+T0T0 T1T1 T2T2 T3T3 T4T4 T5T5 T6T6 T7T7
+T8T8 T9T9 TATA TBTB TCTC TDTD TETE TFTF
+
+Base address + (T#T# Little endian) = Track location 
+If T#T# == 0000 the track isn't used
+
+commands 0x00 - 0x1F
+00 - Null doesn't crash just keeps going.
+
+Global effects the whole song
+05 #### 		Set Tempo  0101 ???? ??TT TTTT TTTT (Big Endian in a3)
+0A ##			Global Transpose (Signed Value)
+1A ##			Set Vol
+
+Track only effects the track
+04 ##			Set Octave
+07 ## 			Track volume 7F = 1F yet 1F = 0F
+08 ## 	 		Change Instrument
+
+0C ##			???
+
+0E ## 			Repeat Measure
+
+
+17				Ends Track: track will no longer be active
+18 ##			Panning
+
+
+???
+455 = 138 bpm
+0x1C7 = 138 bpm
+
+04 ## + Global key + 1 = 0x21,0x41,0x61,0x81,0xA1,0xC1,0xE1
+
+Based on Sakura's Theme sheet in All About Zero 2
+0x21-0x3F 64th
+0x41-0x5F 32nd
+0x61-0x7F 16th
+0x81-0x9F 8th
+0xA1-0xBF Quarter
+0xC1-0xDF Half
+0xE1-0xFF Whole
+
+Rests Same speeds as above
+20 64th
+40 32nd
+60 16th
+80 8th 
+A0 Quarter
+C0 Half
+E0 Whole
+
+Command check list
+00+
+01
+02
+03
+04+
+05+
+06
+07+
+08+
+09
+0A+
+0B
+0C
+0D
+0E+
+0F
+
+10
+11
+12
+13
+14
+15
+16
+17+
+18+
+19
+1A+
+1B
+1C
+1D
+1E
+1F
+
+CPS2 Memory Note values
+31 = C
+32 = Db/C# 
+33 = D
+34 = Eb/D#
+35 = E
+36 = F
+37 = Gb/F#
+38 = G
+39 = Ab/G#
+3A = A
+3B = Bb/A#
+3C = B
+
+CPZN Q Sound
+Header same as above
+Commands
+C1 ## ## Tempo : Can be different than the sheet music as they could be double counting as 0x0DD7 = 138bpm and 0x1769 = 180bpm
+C2 ## ## Change Instrument Bank
+
+C4 ## Instrument
+C6 ## ## Volume
+
+B2 ## ## ## ## Note/sustain+otherstuff/???/Length: Editing b2 doesn't do anything but it's before every played note
