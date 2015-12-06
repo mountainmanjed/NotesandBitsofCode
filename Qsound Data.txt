@@ -17,28 +17,25 @@ commands 0x00 - 0x1F
 
 Global effects the whole song
 05 #### 		Set Tempo  0101 ???? ??TT TTTT TTTT (Big Endian in a3)
-0A ##			Global Transpose (Signed Value)
 1A ##			Set Vol
 
 Track only effects the track
 04 ##			Set Octave
 07 ## 			Track volume 7F = 1F yet 1F = 0F
 08 ## 	 		Change Instrument
+0A ##			Transpose (Signed Value)
 
 0C ##			???
 
-0E ## 			Repeat Measure
-
+0E ## #### 			Repeat Measure Times/Place(Signed)
 
 17				Ends Track: track will no longer be active
 18 ##			Panning
 
 
-???
+Tempo Sakura A2 Theme
 455 = 138 bpm
 0x1C7 = 138 bpm
-
-04 ## + Global key + 1 = 0x21,0x41,0x61,0x81,0xA1,0xC1,0xE1
 
 Based on Sakura's Theme sheet in All About Zero 2
 0x21-0x3F 64th
