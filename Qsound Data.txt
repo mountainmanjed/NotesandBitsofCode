@@ -1,7 +1,7 @@
 CPS2 Song Format
 instrument settings table usually 7000
 data table usually 9005
-
+instrument table 7000 most of time according to VGMtrans
 Header
 00 I have no clue what the first byte does. It's 7F in sfx 
 ??
