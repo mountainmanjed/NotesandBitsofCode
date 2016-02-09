@@ -28,7 +28,7 @@ Track only effects the track
 
 0C ##			???
 
-0E ## 			Repeat Measure
+0E ## ####			Repeat Measure the next value is 16bitsigned tells where to jump after repeat.
 
 
 17				Ends Track: track will no longer be active
