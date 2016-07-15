@@ -1,0 +1,145 @@
+3s notes Player Addresses 0x02068C6C, 0x02069104
+Special moves
+Ram 0x1C
+Alex Stomp 02025A28  (2)8+K 2A frames
+Ryu Jordan 02025A28
+
+0x00
+0x01
+0x02 16bit timer(signed)
+0x04
+0x05
+0x06 usually 80
+0x07 Directional Input (1 up,2 down,8 back,4 forward)
+0x08 Pointer to the rom data
+0x0C
+0x0D
+0x0E
+0x0F
+
+To get first input take the pointer in ram data and subtract 8
+Rom 8 bytes for each input(might have a flag for 16 bytes or blank inputs on 222+3P)
+0x00
+0x01
+0x02 16bit timer(signed)
+
+0x04
+0x05
+0x06 usually 80
+0x07 Directional Input(Binary: 1 up,2 down,4 forward,8 back)
+
+Gouki 0x019b4aa Rom 10
+222+3P
+
+Animation format 16 or 24 bytes
+0x00 Frame count
+0x01 Unknown
+0x02
+0x03
+
+0x04 Extra graphic 12b unknown4b
+0x06 Cell
+
+0x08
+0x0A Collision Boxes
+
+0x0C
+0x0D Cancels Binary flags below
+0x0E Projectile Spawn
+0x0F
+
+Sometimes not used need to find flag for them
+0x10
+0x11
+0x12
+0x13
+0x14
+0x15
+0x16
+0x17
+0x18
+
+Attack Data
+bp 608c428
+R3 = Attack Data addr = (atkbase + R3*16)
+
+0x00 Hurtstun Animation
+0x01 Hurtstun Length strength?
+0x02 Hitspark
+0x03
+
+0x04
+0x05
+0x06
+0x07
+
+0x08 Damage
+0x09 Push Back
+0x0A Stun
+0x0B
+
+0x0C Hitstop player
+0x0D Hitstop opponent (signed)
+0x0E
+0x0F
+
+Cancel Flags Binary Flags
+0x80 ??? Is this even used?
+0x40 Supers
+0x20 Specials
+0x10 Same Attack into itself *BUGGY use sparringly*
+0x08 Target combos
+0x04 Nomrals
+0x02 Dash
+0x01 Super Jump
+
+Fighting Sprite Cells
+0x0000 Gill
+0x0600 Alex
+0x0C00 Ryu
+0x1200 Yun
+0x1800 Dudley
+0x1E00 Necro
+0x2400 Hugo
+0x2A00 Ibuki
+0x3000 Elena Has more later
+0x3600 Oro
+0x3C00 Yang
+0x4200 Ken
+0x4800 Sean
+0x4E00 Urien
+0x5400 Akuma
+0x5A00 Chun li
+0x6000 Makoto Has more later
+0x6600 Q
+0x6C00 No.12
+0x7200 Remy
+
+character order
+00 Gill
+01 Alex
+02 Ryu
+03 Yun
+04 Dudley
+05 Necro
+06 Hugo
+07 Ibuki
+08 Elena
+09 Oro
+0A Yang
+0B Ken
+0C Sean
+0D Urien
+0E Akuma
+0F Shin Cookie
+10 Chun li
+11 Makoto
+12 Q
+13 No.12
+14 Remy
+
+Cell IDs
+DE11 Chun Stage Table
+DE5A Table items
+
+4772f0 Yang SA2 graphic needs to be 60 not 50
