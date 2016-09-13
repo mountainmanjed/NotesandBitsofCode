@@ -1,0 +1,224 @@
+Akuma P1 Name compare 3c100
+31C08 p1 Load palette??
+Akuma P1 Portrait compare 3C13A
+3c17a ??
+3c288 Loading
+
+Vs Screen
+3c2c6
+4e2bc ??
+4e2FE ??
+4e39c Vs Screen Name
+
+Win Screen P1
+3c482
+3c4d8
+3c3d4
+
+Akuma P2 Name compare 3c024
+Akuma P2 portrait comapre 3c050
+
+3c244?
+4e2bc
+4e2fe
+4e39C
+
+old palette write 1579e
+match timer FF8DCE
+
+bp 14eb4 old character input code
+a4 in cache is the player address that has selected
+color 0x0A check at 0x4e39c;probably akuma portrait
+
+15788 Old Character Write Start
+
+Character Select Timer ADDR FFE1D2 (a5 + 61D2)
+Old Character Input Timer
+write	 0x00E7C0 (397C #### 03C0) 0x0708 = 30 seconds
+read	 0x00E732 (4A6C 03C0)
+subtract 0x00E744 (536C 03C0)
+
+--[[ Character Select Screen
++ 0xA3 Player ID Display
++ 0xA4 Player Color Display
++ 0x2A5 Player Old Display?
+]]
++ 0x391 Actual Player ID
++ 0x392 Input looks to be the first in the buffer
++ 0x394 1 Frame buffer
++ 0x39E Oppoent Adr
++ 0x3AC old character code timer(1 byte)
++ 0x3b1 Actual Player Color
++ 0x3B6 Old Character Switch
++ 0x3BD Akuma
++ 0x3C0 New Timer Location(2 bytes)
+
+
+;Capcom was andi then cmp
+;$14eb4
+;4EF9 #### ####
+
+;396800
+;Input Grab bit flags  UDLR
+;1 is right 2 is left; 8421
+
+4EB9 Sprites		jsr sprites
+4EB9 #### ####		palette
+102C 0393			move.b ($393,A4),D0
+0200 000F 			andi.b D0,$0f
+6706 				beq;If no input
+B02C 0395			cmp.b ($395,A4),d0;Prevent doing an input every frame unless a button is pressed
+6602				bne
+4E75 				rts
+
+0800 0003 			btst D0,$3;up input
+6636				bne;branch to jump to the old version write
+
+;Right input
+0800 0000 			btst D0,$0
+6608 				bne
+
+;Left input
+0800 0001 			btst D0,$1
+6614 				bne
+4E75				rts;safety
+
+;Right Input code
+102C 03B1			move.b ($3b1,A4),D0
+5200 	 		    addq.b #1, D0
+
+;Needs to be rewritten
+;102C 0391			move.b ($391,A4),D0
+;B02B 0391			cmp.b ($391,A3),D0
+;660A				bne 
+;102C 03B1			move.b ($3B1,A4),D0
+;B02B 03B1			cmp.b ($3b1,A3),D0; Compare to Opponents color
+;66F8	 			beq
+;
+
+0C2C 001F 03B1 		cmpi.b  #$1f, ($3b1,A4);edit this for number of colors 0x1F being max
+6D02			  	blt; 6Exx is greater than 
+7000 			   	moveq #$0, D0
+600A ####			bra 
+
+;Left input code
+102C 03B1			move.b ($3b1,A4),D0
+5300 	 		    subq.b #1, D0
+6A02				bpl
+701F
+
+;End
+1940 03B1			move.b D0, ($3b1,A4)
+4E75				rts
+
+;Up input
+4EB9 #### ####		palette
+4EF9 0001 5788		jmp #$15788;Jump to Button inputs for old versions
+
+;Load Palette
+;900020 Player1
+;900040 Player2
+;A0 ~ A2 are usable
+;D0 D1
+
+;Writing Palette
+43F9 0090 0020		lea     $900020.l, A1;Player 1 Palette Ram
+0C6C 884E 039E		cmp A4
+6704				beq
+D2FC 0020			adda.w  #$20, A1
+
+102C 0391			move.b  ($391,A4),D0 ; Player 1 ID
+4A2D 080B			tst.b   ($3bd,A4); Akuma Flag
+6704				beq     $pc+04
+103C 0010			move.b  #$10, D0
+
+D000				add.b   D0, D0
+4EB9 0038 0000		jsr 	$player palette addr
+102C 03B1           move.b  ($3b1,A4), D0; Palette ID
+D000 				add.b   D0, D0
+3230 0000			move.w  (A0,D0.w), D1
+41F0 1000			lea     (A0,D1.w), A0
+
+D0FC 0002			adda.w  #$2, A0
+323C 0007			move.w  #$7, D1
+2018				move.l  (A0)+, D0
+D0BC F000 F000		add.l	#$F000F000, D0
+22C0				move.l	D0, (A1)+
+51C9 FFF4			dbra	D1,$-C
+4E75				rts
+
+
+
+:Sprite Display
+;Fonts
+;Tournament Battle Font 80B0
+;Sprite Ram Data location 0x910000 gets copied to 708100
+;Example Sprite of 1 E0A0 0040 80B1 0001
+;E0 = priority
+;A0 = X
+;40 = Y
+;80B1 location of 1 graphic
+;01 Palette and flip
+
+;P x44 yE0		80D0?
+;a x4e yE0		80E1?
+;l x56 yE0		80EC
+;# x66 yE0;tens 80B0
+;# x72 yE0;ones 80B0
+
+;Character sprifte examples
+;Ryu
+;F0A0 0030 0004 5321
+
+;Honda
+;F0C0 0030 0382 4221
+;F0A0 0050 0395 4121
+;F0F0 0060 03A1 0021
+;F0F0 0070 03B0 0121
+;F0E0 0080 03C1 1121
+
+;Blanka
+F0A0 0030 0A72 5321
+
+;Guile
+F0B0 0030 7200 2321
+F0B0 0060 7231 2221
+F0A0 0070 7230 1021
+
+;Sagat
+F050 0010 4E1C 7321
+
+
+;Cammy
+;F0B0 0040 9000 0221
+;F0A0 0050 9003 0321
+;F0A0 0060 9007 0321
+;F0A0 0070 900B 0321
+;F0A0 0080 900F 0421
+;F0D0 0090 9014 0121
+;F0A0 0090 9016 0121
+
+
+;A1 is usable
+lea A1 910200
+
+;Tempcode Just draws Ryu
+43F9 0091 0200
+B8FC 884E 			cmp A4
+670E				beq
+22FC F0A0 0030
+22FC 0004 5321
+4E75
+
+D2FC 0008			adda.w  #$20, A1
+22FC F120 0030
+22FC 0004 5302
+4E75
+
+
+D040				add.w   D0,D0
+303B #### 
+
+
+0039 68f0
+
