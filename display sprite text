@@ -1,0 +1,171 @@
+;Tournament Battle Font 80B0
+;Sprite Ram Data location 0x910000 gets copied to 708100
+
+'396730
+;Menu Pointer
+41F9 0091 0500		lea A0 910500;+8 for p2
+203C F0A0 0020		move.l #$f0a00020, D0
+B8FC 884E 			cmp A4
+660A				bne;branch if p1
+
+;player 2
+D0FC 0008			adda.w #$8, A0
+203C F110 0020		move.l #$f1100020, D0
+
+322C 03D0			move.w ($3D0,A4),D1
+E749				lsl.w #3, D1
+D041				add D1,D0
+20C0				move.l	D0, (A0)+
+20BC 80BE 000D		move.l #$80be000d,(A0)
+4E75
+
+
+
+;Pal Text 16E50
+41F9 0091 0510		lea A0 910510;
+B8FC 884E 			cmp A4
+
+203C F0B0 0020		move.l #$f0B00020, D0
+660A 				bne;branch if p1
+;Player 2
+D0FC 0048			adda.w #$48, A0; 
+203C F120 0020		move.l #$f1200020, D0
+
+20C0				move.l D0, (A0)+
+20FC 80D0 000D		move.l #$80d0000d,(A0)+ ;P
+D0BC 000A 0000		add.l #$a0000, D0
+20C0				move.l D0, (A0)+
+20FC 80C1 000D		move.l #$80c1000d,(A0)+ ;A
+D0BC 000C 0000		add.l #$c0000, D0
+20C0				move.l D0, (A0)+
+20FC 80CC 000D		move.l #$80cc000d,(A0)+ ;L
+
+D0BC 0012 0000		add.l #$c0000, D0
+20C0				move.l D0, (A0)+
+7400				moveq #$0, D2
+142C 03B1			move.b ($3b1,A4),D2
+D402				add d2, d2
+
+43F9 0039 7000		lea TensTable, A1; 0039 7000
+
+
+3231 2000			move.w(A1,D2.w), D1 
+4841				swap D1
+323C 000D			move.w #$d, D1
+20C1				move.l D1,(AO)+ ; tens digit
+
+D0BC 000E 0000		add.l #$c0000, D0
+20C0				move.l D0, (A0)+
+43F9 0039 7040		lea OnesTable, A1;397040
+3231 2000			move.w(A1,D2.w), D1
+4841				swap D1
+323C 000D			move.w #$d
+20C1 				move.l D1,(AO)+ ; ones
+
+203C F0B0 0030		move.l #$f0B00030, D0
+B8FC 884E 			cmp A4
+6606b				bne;branch if p1
+
+;Player 2
+203C F120 0030		move.l #$f1200030, D0
+
+20C0				move.l D0, (A0)+
+20FC 80D6 000D		move.l #$80d6000d,(A0)+ ;V 
+
+D0BC 000C 0000		add.l #$c0000, D0
+20C0				move.l D0, (A0)+
+20FC 80C5 000D		move.l #$80c5000d,(A0)+ ;E
+
+D0BC 000C 0000		add.l #$c0000, D0
+20C0				move.l D0, (A0)+
+20FC 80D3 000D		move.l #$80d2000d,(A0)+ ;R
+
+D0BC 0010 0000		add.l #$100000, D0
+20C0				move.l D0, (A0)+
+7400				moveq #$0, D2
+142C 03B6			move.b ($3b6,A4),D2
+323C 80CE
+D202				add D2, D1 
+4841				swap D1
+323C 000D			move.w #$d, D1
+20C1 				move.l D1,(AO)+ ;N or O
+4E75				rts
+
+TensTable 17000
+80B0 80B0 80B0 80B0 80B0 80B0 80B0 80B0
+80B0 80B1 80B1 80B1 80B1 80B1 80B1 80B1
+80B1 80B1 80B1 80B2 80B2 80B2 80B2 80B2
+80B2 80B2 80B2 80B2 80B2 80B3 80B3 80B3  
+
+OnesTable 17040
+
+80B1 80B2 80B3 80B4 80B5 80B6 80B7 80B8
+80B9 80B0 80B1 80B2 80B3 80B4 80B5 80B6
+80B7 80B8 80B9 80B0 80B1 80B2 80B3 80B4
+80B5 80B6 80B7 80B8 80B9 80B0 80B1 80B2
+
+
+
+Player 1 
+PAL
+;F0B0 0020 80D0 000D
+;F0BA 0020 80C1 000D
+;F0C6 0020 80CC 000D
+
+;Palette Number
+F0D8 0020 80B# 000D
+F0E6 0020 80B# 000D
+
+;VER
+F0B0 0030 80D4 000D
+F0BC 0030 80C5 000D
+F0C8 0030 80D0 000D
+
+F0E4 0030 80CE 000D; N or O just add one
+
+;Player 2
+PAL
+F120 0020 80D0 000D
+F12A 0020 80C1 000D
+F136 0020 80CC 000D
+
+F148 0020 80B# 000D
+F156 0020 80B# 000D
+
+TYPE
+F120 0020 80D4 000D
+F12C 0020 80D9 000D
+F138 0020 80D0 000D
+F144 0020 80C5 000D
+
+F154 0020 80CE 000D
+
+
+
+
+
+;Player 1
+;Pal
+F0B0 0020 80D0 000D
+F0BA 0020 80C1 000D
+F0C6 0020 80CC 000D
+
+;Palette Number
+F0D8 0020 80B# 000D
+F0E6 0020 80B# 000D
+
+;Version "TYPE"
+F0B0 0030 80D4 000D
+F0BC 0030 80D9 000D
+F0C8 0030 80D0 000D
+F0D4 0030 80C5 000D
+
+F0E4 0030 80CE 000D; just add one
+
+;Player 2
+F120 0020 80D0 000D
+F12A 0020 80C1 000D
+F136 0020 80CC 000D
+
+F148 0020 80B# 000D
+F156 0020 80B# 000D

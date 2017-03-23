@@ -1,0 +1,78 @@
+EX stages
+
+CE locations
+5000 16x16
+A000 32x32
+
+asm Start
+259E Sprite
+25BA  8x 8
+25D6 16x16
+25F2 32x32
+
+Math done by 2 shift opcodes
+Stage C
+0x0C * 0x100 = 0x0C00
+0xC00 * 0x04 = 0x3000
+
+0x3000 + Paletteaddr
+
+0x01 = 0x0400 Honda Stage
+0x02 = 0x0800
+0x03 = 0x0C00
+0x04 = 0x1000
+0x08 = 0x2000
+0x0C = 0x3000
+0x0F = 0x3C00 Dee Jay Stage
+
+0x10 = 0x4000
+0x14 = 0x5000
+0x15 = 0x5400 Service Menu
+
+???
+0x18 = 0x6000 
+0x1C = 0x7000
+
+0x20 = 0x8000 End
+
+900000 Palette Ram Sprites
+900400 8x8
+900800 16x16
+900C00 32x32
+
+Bank2 Chun and Cammy Intro
+924000 
+924400
+924800
+924C00
+2
+Original Addresses
+0D3E3C Sprites
+2E0000  8 x  8 BG
+2E8000 16 x 16 BG
+2F0400 32 x 32 BG
+
+New Addr
+3A8000 - Sprites rom10 28000
+3B4000 -  8 x  8 rom10 34000
+3BC020 - 16 x 16 rom10 3C020
+3C4440 - 32 x 32 rom10 44440
+
+asm edits
+25AC Sprites
+25C8  8 x  8
+25E4 16 x 16
+2600 32 x 32
+054748 32x32 after super flash
+
+;New Code
+0C2D 0000 ####  compare (A5 + ####) to 0
+6608			branch not equal
+207C orig addr	a0 becomes orginal colors
+4E75
+207C new* addr  a0 becomes ex
+4E75
+
+
+c90E0
+

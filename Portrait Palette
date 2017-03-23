@@ -1,0 +1,43 @@
+Character Select
+;Palette ID read
+03C12E: move.b  ($7ff,A5), D2; Player 1
+03C04C: move.b  ($bff,A5), D2; Player 2
+
+
+
+Akuma P2 Name compare
+3c024
+Akuma P2 portrait comapre
+3c058
+
+Akuma P1 Name compare
+3c100
+Akuma P1 Portrait compare 
+3C13A
+
+
+3c174 ??
+Versus Screen
+
+3c244 Palette P2
+3c288 Palette P1
+
+3c2c6
+4e2bc ??
+4e2FE ??
+4e39c Vs Screen Name
+
+
+
+
+Win Screen P1
+3c482 ??
+3c4d8 ??
+3c3d4 Palette P1
+
+
+4e2bc
+4e2fe
+4e39C
+
+

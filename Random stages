@@ -1,0 +1,34 @@
+;0039A6 jsr to random stage
+;4EB9 00397400
+
+;Rng function
+4EB9 0000 2E96
+
+;Old
+0CCC10: 302D 61D2 		move.w  ($61d2,A5), D0
+0CCC14: 0240 000F 		andi.w  #$f, D0
+0CCC18: 3B40 0C4E 		move.w  D0, ($c4e,A5)
+0CCC1C: D040 			add.w   D0, D0
+0CCC1E: 4E75 			rts
+
+
+
+7000 		 	moveq	0,D0
+4EB9 0000 2E96	jsr		#$2e96.l;RNG Function
+0240 000F		andi.w  #$f, D0
+B06D FF00		cmp.w	(-#$100,A5),D0
+67F0			beq		(pc-10)
+3B40 FF00		move.w	(-#$100,A5)
+3B40 0C4E		move.w	D0, ($c4e,A5)
+D040			add.w	D0, D0
+4E75			rts
+
+moveq	0,D0
+jsr		#$2e96.l;RNG Function
+andi.w  #$f, D0
+cmp.w	(-#$100,A5),D0
+beq		(pc-10)
+move.w	(-#$100,A5)
+move.w	D0, ($c4e,A5)
+add.w	D0, D0
+rts

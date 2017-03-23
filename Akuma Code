@@ -1,0 +1,11 @@
+00E858: move.b ($391,A4), D0
+00E85C: beq    $e864
+
+00E87E: cmpi.b #$d,D0
+00E89E: cmpi.b #$3,D0
+00E8BE: cmpi.b #$c,D0
+
+00E8DA: move.b ($391,A4), D0
+00E8DE: beq    $e864
+00E8E0: cmpi.b #$4,D0
+

@@ -1,0 +1,135 @@
+cec19 = 12 for free play
+
+0040 Coin1
+0041 Coin2(not used)
+0042 Cursor move p1
+0043 Selection
+0044 Score Tally
+0045 Unused
+
+;14eb4 Jump
+
+4EB9 #### ####	Palette Portrait Darken(maybe later?)
+
+;397100
+4EB9 0039 6930  jsr menu pointer 
+4EB9 0039 6E50	jsr text
+4EB9 0039 6870  jsr Character Palette
+4EB9 0039 6730	jsr Character sprite
+
+7000			moveq #$0, D0
+302C 0392		move.w ($392,A4),D0
+B06C 0394		cmp.b ($394,A4),D0;Prevent doing an input every frame unless a button is pressed
+6602			bne
+4E75 			rts
+
+;Jab Finish Selection
+0800 0004		btst D0,$4
+6706			beq
+4EF9 0039 71E2	jmp 3971E2
+
+322C 03D0		move.w	($3d0,A4),D1
+323B 1006       move.w  ($6,PC,D1.w), D1;FIX 
+4EFB 1002       jmp     ($2,PC,D1.w)
+
+;39713e
+0004 0###
+
+;inputs
+0800 0000 		btst D0,$0; Right;+1 palette
+66## 			bne
+0800 0001 		btst D0,$1; Left;-1 palette
+66## 			bne
+0240 000C 		andi D0,$C; UpDown To menu add
+67## 			bne
+
+;Menu 00
+;Palette Right
+102C 03B1			move.b ($3b1,A4),D0
+5200 	 		    addq.b #1, D0
+0C2C 001F 03B1 		cmpi.b  #$1f, ($3b1,A4);edit this for number of colors 0x1F being max
+6D02			  	blt; 6Exx is greater than 
+7000 			   	moveq #$0, D0
+B22B 0391			cmp.b ($391,A3),D1
+66F8	 			bne
+B02B 03B1			cmp.b D0,($3b1,A3); Compare to Opponents color
+66E#	 			beq
+60##
+
+;Palette Left
+102C 03B1			move.b ($3b1,A4),D0
+5300 	 		    subq.b #1, D0
+6A02				bpl
+701F 			   	moveq #$1f, D0;edit this for number of colors 0x1F being max
+B22B 0391			cmp.b ($391,A3),D1
+66F8	 			bne
+B02B 03B1			cmp.b D0,($3b1,A3); Compare to Opponents color
+66E#
+
+;End
+1940 03B1			move.b D0, ($3b1,A4)
+4E75				rts
+
+;Press Up & Down
+542C 03D0		addq.b #2 ($3d0,A4)
+4E75			rts
+
+
+;Menu2 Old Select Menu 
+0240 000C 		andi.w D0,$C; upand down
+6600			bne
+302C 0392		move.w ($392,A4),D0
+0240 0003 		andi.w D0,$3;
+6608 			bne
+
+
+;;left & right input
+7000
+102C 03B6		move.b ($3b6,A4),D0
+6728			beq if Old then branch
+
+;N to O I shouldn't of said there was a choice to make a version you can annoy your opponent with
+5200			addq.b #1, D0
+1940 03B6		move.b D0,($3b6,A4)
+7000
+7200
+322C 0391		move.b ($391,A4),D1
+D201			add D1,D1
+43F9 00## ####	lea Qsound_Table;397200
+3231 1000		move.w(A1,D1.w), D1
+243C 0010 0000	move.w #$00100000,D2
+7600			moveq   #$0, D3
+4EB9 0000 7A84	jmp     $7a84.l;Sound Function D1,D2,D3 are all used
+7000
+4E75
+
+;O to N;3971d4
+5300			subq.b #1,D0
+1940 03B6		move.b D0,($3b6,A4)
+4E75
+
+;Up&Down
+552C 03D0		subq.b #2 ($3d0,A4)
+4E75			rts
+
+
+;End Timer (Jab Button)
+7001			moveq  0,D0
+3940 03C0 		move.w D0,($3c0,A4)
+4E75
+
+;OSound_Table location 397200
+Old Character Select Sounds
+6100 4E01 5101 4701 3B01 6F00 5901 5601
+6E01 6601 6001 6101 7F01 7001 A200 B601 
+
+;Not Used
+;Original Idea for Version Select and when you pressed Start it would play the sound
+102C 03B6		move.b ($3b6,A4),D0
+6702			bne
+5500 	 	    subq.b #2, D0
+5200			addq.b #1, D0
+1940 03B6		move.b D0,($3b6,A4)
+4E75			rts
+
+

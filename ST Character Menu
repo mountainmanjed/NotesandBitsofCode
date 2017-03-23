@@ -1,0 +1,74 @@
+;Checksum
+
+Palette code
+color 0x0A check at 0x4e39c;?
+
+;Load Player Palette for matches
+0BFA78 also in palette.asm
+
+Player Addresses
+ff844e Player 1
+ff884e Player 2
+
+old palette write 1579e
+match timer FF8DCE
+
+bp 14eb4 old character input code
+a4 in cache is the player address that has selected
+
+
+Character Select Timer ADDR FFE1D2 (a5 + 61D2)
+
+--[[ Character Select Screen
++ 0xA3 Player ID Display
++ 0xA4 Player Color Display
++ 0x2A5 Player Old Display?
++
+
+]]
++ 0x391 Actual Player ID
++ 0x3b1 Actual Player Color
++ 0x3B6 Old Character Switch
++ 0x3BD Akuma
+
+Plans
+Use the empty rom slot Done
+More Character Palettes atleast 2 for each character reason for a menu
+	(Maybe more? depends if anyone else wants to do my original plan was 6 new colors but 6*16 = 96)
+
+Menu after selecting character instead of old character cheat(if this fucks up playable akuma doubt any one will care)
+	Actual Sprite Displayed
+	(after selection to hide it for people who boot it up for the first time?)
+ 
+Palette Select
+ 
+Old Character selection
+ (Doing this means old characters will have access to new palettes and vice versa (Should it?)
+ 
+ *Maybe Match up
+ (not from the board itself)
+ 
+ What to do with the portrait?(Lazy way would be to just use one color)
+
+Palette format will stay the same but will have string right before them
+Match Sprites
+RYU PALETTE ##
+HND 
+BLK
+GUI
+
+KEN
+CHN
+ZAN
+SIM
+
+DIC
+SAG
+BOX
+CLW
+
+CAM
+THK
+FEI
+DEJ
+AKM
