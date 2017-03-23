@@ -1,0 +1,64 @@
+DOS all 4 CGA palettes/Tandy Jr
+000 555 black dark gray
+00A 55F blue
+0A0 5F5 green
+0AA 5FF cyan
+A00 F55 red
+A0A F5F violet
+A50 FF5 yellow/brown
+AAA FFF light gray / white
+
+
+
+FFF 5FF 0AA 55F 00A
+
+
+
+
+
+
+
+
+C64
+000 FFF Black / White
+800 AFE Red / Cyan
+C4C 0C5 Violet / Green
+00A EE7 Blue / Yellow
+D85 640 Orange / Brown
+F77 333 LRed / DGrey
+777 AF6 Gray / LGreen
+08F BBB LBlue / LGrey
+
+MSX1 15 colors
+000
+2D4 6E8 Greens
+55E 77F Blues
+D55	4FF Dark Red/ Cyan
+F55 F88 Reds
+DC5 EC8 Yellows
+2B4	C5B Dark Green/ Violet
+CCC FFF Gray/White
+
+MSX2 doing MSX1
+000
+2D2 7F7 Greens
+22F 46F Blues
+B22 4DF Dark Red/ Cyan
+F22 F66 Reds
+DD2 DD9 Yellows
+292 D4B Dark Green/ Violet
+BBB FFF Gray/White
+
+PC88
+000 
+F00
+0F0
+00F
+FF0
+0FF
+F0F
+FFF
+
+
+
+
