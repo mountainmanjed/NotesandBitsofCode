@@ -1,3 +1,5 @@
+Retro PC colors converted to CPS2 format mainly used to make character palettes
+
 DOS all 4 CGA palettes/Tandy Jr
 000 555 black dark gray
 00A 55F blue
@@ -7,17 +9,6 @@ A00 F55 red
 A0A F5F violet
 A50 FF5 yellow/brown
 AAA FFF light gray / white
-
-
-
-FFF 5FF 0AA 55F 00A
-
-
-
-
-
-
-
 
 C64
 000 FFF Black / White
