@@ -1,0 +1,107 @@
+From Mame's Source
+workram				0x00500000~0x005fffff
+maindata			0x02000000~0x03ffffff
+maindata extension	0x06000000~0x06ffffff +0x1000000 to main_data
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Shared in VF2 and Fighting Vipers probably Sonic as well.
+0x500020 = timer 0 usually counting up
+0x500024 = timer 1 select timer
+0x500028 = timer 2 usually Match timer
+0x50002a = Game State
+
+0x500800 = Pointer Table
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+620c maindata = character data pointers
+VF2.0
+Akira	1208	3638	0bf8
+Jacky	1598	39c8	0bf8
+Sarah	1928	3d58	0658
+Kage	1cb8	40e8
+Lau		2048	4478
+Jeffry	23d8	4808
+Pai		4b98	2768
+Wolf	2af8	4f28
+Shun	2e88	52b8
+Dural	2f18	2f18
+Lion	32a8	5648
+Lion2	32a8	5648
+Lion3	32a8	5648
+
+Fighting Vipers
+main_data 0x140d2b0 
+
+		0140
+Jane	be18
+Honey	bf18
+Bahn	c018
+Raxel	c118
+0005	c218
+Sonic	c318
+0006	c418
+Grace	c518
+0007	c618
+Picky	c718
+0009	c818
+B.M 	c918
+000b	c398
+
+
+Virtua Fighter 2 Memory Pointers
+510980 - player 1 
+512980 - Player 2 
+
+515400 - Camera
+510880 - 
+515200 - Hud maybe the timer as well
+514980 - 
+515880
+515b00
+515b80
+515c00
+515c80
+510380
+510600
+515d00
+514e00
+514d80
+510000
+510900
+510080
+515d80
+515f00
+516180
+515e80
+516400
+515280
+515300
+515380
+510180
+510280
+
+Player Select memory
+515c00 1p
+515c80 2p
+ 
++0x06 Character Select Id 
+	Reads
+	304c4 - Table 3050c,30e64
+	2ed1c - 2ee94
+	2ec60 - Compare both players
+	2eed0 - 2eb4c 
+	2ef2c - Compare both players
+	2f4bc - 
+	3052c -
+
++0x40 Activated?
+
+Character Data
+Pointer0 Pointer1 ???????? ????????
+???????? ???????? ???????? ????????
+???????? PhysOBJ0 PhysOBJ1 PhysOBJ2
+
+Same as Vf1 Here
+Waist    Torso    Head     RBicep  
+RForearm RHand    LBicep   LForearm
+LHand    Crotch   RCalf    RShin
+RFoot    LCalf    LShin    LFoot
