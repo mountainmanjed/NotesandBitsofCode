@@ -1,8 +1,8 @@
 Rom Notes roms need to be interleaved every byte
 
-						   HexEditor/ TMS Location
-Team Pairing location	 = 0x
-Portrait Pointers		 = 0x03d316 / 0xff9e98b0
+                           HexEditor/ TMS Location
+Team Pairing location    = 0x
+Portrait Pointers        = 0x03d316 / 0xff9e98b0
 Fake Stat table location = 0x03e496 / 0xff9f24b0
 
 To get the location from TMS to Hex Editor
