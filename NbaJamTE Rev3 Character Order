@@ -1,0 +1,88 @@
+10A03E0
+
+;=============;
+;  ATL Hawks  ;
+;=============;
+0x00 Manning
+0x01 Augmon
+0x02 Willis
+
+;=============;
+; BOS Celtics ;
+;=============;
+
+
+;============;
+;  Phx Suns  ;
+;============;
+0x42 Majerle
+
+
+;/\/\/\/\/\/\/\/\/\/\/\/\/\;
+;  3.0  Secret Characters  ;
+;\/\/\/\/\/\/\/\/\/\/\/\/\/;
+0x00 Tony Goskie (TWG DEC 7)
+0x01 Jamie Rivett (RJR JAN 17)
+0x02 John Carlton (JMC AUG 5)
+0x03 Sal Divita (SAL FEB 1)
+0x04 Shawn Liptak (SL_ JUN 24)
+0x05 Mark J. Turmell (MJT MAR 22)
+0x06 Jon Hey (JWH SEP 20)
+0x07 George Petro (GNP OCT 8)
+0x08 John Newcomer (JRN JUN 18)
+0x09 Sheridan Oursler (SNO JAN 3)
+0x0A Al Lasko (AML AUG 31)
+0x0B Air Morris (WIL JAN 1)
+0x0C Cary Mednick (CMM JUL 2)
+0x0D Dan Forden (DWF SEP 28)
+0x0E Eric Kinkead (DIE JAN 1)
+0x0F Eugene Jarvis (EPJ JAN 27)
+
+0x10 Jack Haeger (JEH JUL 13)
+0x11 Jake Simpson (JMS FEB 22)
+0x12 Jim Green (JDG MAY 31)
+0x13 Jim Gentile (JPG JAN 23)
+0x14 Joe Dillon (JPD JUN 3)
+0x15 John Lowes (JML NOV 4)
+0x16 John Vogel (VOG JUN 27)
+0x17 Josh Tsui (JYT NOV 28)
+0x18 Larry Debar (VLK NOV 9)
+0x19 Linda Deal (LTD APR 30)
+0x1A Matt Booty (MVB APR 18)
+0x1B Mark Loffredo (ML_ MAY 25)
+0x1D Paul Barker (PCB MAY 9)
+0x1C Mark Penacho (MDP JAN 13)
+0x1E Pat Cox (PGC APR 11)
+0x1F Ray Macika (REM MAR 26)
+
+0x20 Roger Sharpe (ROG AUG 1)
+0x21 Steve Beran (SAB AUG 29)
+0x22 Vince Pontarelli (VJP APR 11)
+0x23 Warren Davis (WBD AUG 17)
+0x24 Ed Boon (EJB FEB 22)
+0x25 John Tobias (TOB AUG 24)
+0x26 Paul Heitsch (WMN NOV 11)
+0x27 Bill Dabelstein (DOZ DEC 31)
+0x28 Martin Martinez (MAM AUG 7)
+0x29 Rachel Davies (RJD SEP 3)
+0x2A Kerri Hoskins (KER OCT 10)
+0x2B Lorraine Olivia (LOR FEB 20)
+0x2C Chris Granner (CG_ DEC 4)
+0x2D Raymond Gay (RMG AUG 11)
+0x2E Jason Skiles (JMS JUL 29)
+0x2F Joe Linhoff (JFL APR 16)
+
+0x30 Dominique Wilkins (DOM APR 16)
+0x31 Dee Brown (DEE NOV 29)
+0x32 Alonzo Mourning (ZO_ FEB 8)
+0x33 Scottie Pippen (PIP SEP 25)
+0x34 Isiah Thomas (ZEK APR 30)
+0x35 Chris Webber (WEB MAR 1)
+0x36 Hakeem Olajuwon (HAK JAN 21)
+0x37 Derrick Coleman (DC_ JUN 21)
+0x38 Patrick Ewing (PAT AUG 5)
+0x39 Dennis Rodman (ROD MAY 13)
+0x3A David Robinson (ROB AUG 6)
+0x3B Shawn Kemp (KMP NOV 26)
+0x3C Karl Malone (KRL JUL 24)
+

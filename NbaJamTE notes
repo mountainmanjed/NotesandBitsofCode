@@ -1,0 +1,164 @@
+Rom Notes roms need to be interleaved every byte
+
+						   HexEditor/ TMS Location
+Team Pairing location	 = 0x
+Portrait Pointers		 = 0x03d316 / 0xff9e98b0
+Fake Stat table location = 0x03e496 / 0xff9f24b0
+
+To get the location from TMS to Hex Editor
+
+(TMSLocation-FF800000)/8 = HexEditorLoc
+
+5311c Augmon name tag
+
+1bae4 load player table
+
+
+Rev 3
+ff8c4800 Regular Player
+  0c4800/8
+18900
+
+ff8d0450 Secret Characters
+  0d0450/8
+1A08A
+
+Player data
+Size 0x2E
+
+0x????????: Size Pointer
+0x????: Speed
+0x????: Shoot stat/3pts
+0x000?: Dunk rating (0000-000A)
+0x000?: Block rating (0000-000A)
+0x000?: Steal rating (0000-000A)
+0x000?: Head Scaling
+
+0x10 All these are Pointers
+0x????????: Home Skin Palette
+0x????????: Home Jersey Palette
+0x????????: Away Skin Palette
+0x????????: Away Jersey Palette 
+
+0x20
+0x????????: Pointer 6
+0x????????: Head GFX Pointer
+0x000?: Pass rating (0000-000A)
+0x000?: Power rating (0000-000A)
+0x000?: Clutch rating (0000-000A)
+
+Malone(Initials)
+FF824050
+118E
+04B1
+0009 0008 0003 0004 
+
+FFB71C70 
+FFB650F0
+FFB68AB0 
+FFB61940
+
+FFB61EC0
+FF8DE980
+0005 0009 0008
+
+Malone (Jazz)
+FF824050
+11D0 0410
+0009 0008 0003 0004
+FFB71C70
+FFB650F0
+FFB68AB0
+FFB61940
+
+FFB61EC0 
+FF8DE980
+0005 0009 0008
+
+
+Malone (All Star)
+4050 FF82 
+11D0
+0410
+0009
+0008
+0003
+0004
+1C70 FFB7 
+50F0 FFB6 
+8AB0 FFB6
+1940 FFB6
+1EC0 FFB6
+E980 FF8D
+0005 0009 0008
+
+
+Manning's Data
+ff824050
+11d0 7
+044c 7
+0007 0005 0004 0000
+ffb74c90
+ffb63830
+ffb08ab0
+ffb61890
+
+ffb61aa0
+ff8e40c0
+0002 0006 0007
+
+Real Speed stats
+ 10
+1318 9
+1274 8
+11d0 7
+ 6
+ 5
+ 4
+ 3
+ 2
+ 1
+ 0
+
+3 pts
+ 10
+ 9
+ 8
+044c 7
+ 6
+ 5
+ 4
+ 3
+ 2
+ 1
+
+
+
+
+*TURN ON 8BYTE CHUNKS*
+	AM_RANGE(0x01000000, 0x013fffff) AM_RAM
+
+ bp ff87c220 lower turbo
+ bp ff92f7d0 raise
+
++130 offset for addr1
+
+P1 - 010e6320,
+ Turbo___ - 010e6360
+ TurTimer - 010e6370
+ SpChar__ - 010F06F0
+
+P2 - 010e6450,
+ Turbo___ - 010e6490
+
+p3 - 010e6580
+Turbo___ - 010e65c0
+
+p4 - 010e66b0
+Turbo___ - 010e66F0
+
+
+100c120
+
+
+ff8b7590: move *a0(40h),a0,0
