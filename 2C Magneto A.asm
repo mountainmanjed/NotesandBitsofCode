@@ -262,45 +262,52 @@
 0x0ce30224  0x8c055c3a 0x0ce3232c
 
 ;==============================================================================
+;EM Disruptor
+;==============================================================================;
             0x0ce3022c      e62f           mov.l r14,@-r15                      
-            0x0ce3022e      436e           mov r4,r14                           
+            0x0ce3022e      436e           mov r4,r14             ;move pladr to r14 ;0x8c268340              
             0x0ce30230      d62f           mov.l r13,@-r15                      
             0x0ce30232      224f           sts.l pr,@-r15                       
-            0x0ce30234      43d5           mov.l @(0x10C,PC),r5                 
-            0x0ce30236      7d96           mov.w @(0xFA,PC),r6                  
-            0x0ce30238      43d3           mov.l @(0x10C,PC),r3                 
-            0x0ce3023a      0b43           jsr @r3                     ;[?]     
+            0x0ce30234      43d5           mov.l @(0x10C,PC),r5   ;0x0ce30344 ; 0x0ce322f4 ;EM Input Data
+            0x0ce30236      7d96           mov.w @(0xFA,PC),r6    ;0x0ce30334 ; 0x0374	;Input location
+            0x0ce30238      43d3           mov.l @(0x10C,PC),r3   ;0x0ce30348 ; 0x8c054e58 ;hmm
+            0x0ce3023a      0b43           jsr @r3                          
             0x0ce3023c      ec36           add r14,r6                           
             0x0ce3023e      0c60           extu.b r0,r0                         
             0x0ce30240      0820           tst r0,r0                            
         ,=< 0x0ce30242      0c89           bt 0x0ce3025e               ;[1]     
-        |   0x0ce30244      7790           mov.w @(0xEE,PC),r0                  
+        |   0x0ce30244      7790           mov.w @(0xEE,PC),r0    ;0x0ce30336 ; 0x01f9;Aircheck?
         |   0x0ce30246      ec00           mov.b @(r0,r14),r0                   
         |   0x0ce30248      0c60           extu.b r0,r0                         
         |   0x0ce3024a      0288           cmp/eq 0x02,r0                       
        ,==< 0x0ce3024c      0c8b           bf 0x0ce30268               ;[2]     
-       ||   0x0ce3024e      7390           mov.w @(0xE6,PC),r0                  
+
+       ||   0x0ce3024e      7390           mov.w @(0xE6,PC),r0    ;0x0ce30338 ; 0x01fc
        ||   0x0ce30250      ec02           mov.b @(r0,r14),r2                   
        ||   0x0ce30252      2822           tst r2,r2                            
       ,===< 0x0ce30254      088b           bf 0x0ce30268               ;[2]     
-      |||   0x0ce30256      7090           mov.w @(0xE0,PC),r0                  
+      |||   0x0ce30256      7090           mov.w @(0xE0,PC),r0    ;0x0ce3033a ; 0x01d4
       |||   0x0ce30258      ec03           mov.b @(r0,r14),r3                   
       |||   0x0ce3025a      3823           tst r3,r3                            
      ,====< 0x0ce3025c      0189           bt 0x0ce30262               ;[3]     
+
     ,===`-> 0x0ce3025e      19a0           bra 0x0ce30294              ;[4]     
     ||||    0x0ce30260      00e0           mov 0x00,r0                          
+
     |`----> 0x0ce30262      ec03           mov.b @(r0,r14),r3                   
     | ||    0x0ce30264      0173           add 0x01,r3                          
     | ||    0x0ce30266      340e           mov.b r3,@(r0,r14)                   
-    | ``--> 0x0ce30268      6495           mov.w @(0xC8,PC),r5                  
-    |       0x0ce3026a      38d2           mov.l @(0xE0,PC),r2                  
-    |       0x0ce3026c      ec35           add r14,r5                           
+
+;
+    | ``--> 0x0ce30268      6495           mov.w @(0xC8,PC),r5    ;0x0ce30334 ; 0x0374
+    |       0x0ce3026a      38d2           mov.l @(0xE0,PC),r2    ;0x0ce3034c ; 0x8c055c3a
+    |       0x0ce3026c      ec35           add r14,r5             
     |       0x0ce3026e      0b42           jsr @r2                     ;[?]     
     |       0x0ce30270      e364           mov r14,r4                           
     |       0x0ce30272      00ed           mov 0x00,r13                         
     |       0x0ce30274      d360           mov r13,r0                           
     |       0x0ce30276      0900           nop                                  
-    |       0x0ce30278      35d3           mov.l @(0xD4,PC),r3                  
+    |       0x0ce30278      35d3           mov.l @(0xD4,PC),r3    ;0x0ce30350 ; 0x8c0530d8
     |       0x0ce3027a      15e5           mov 0x15,r5                          
     |       0x0ce3027c      e580           mov.b r0,@(0x5,r14)                  
     |       0x0ce3027e      0b43           jsr @r3                     ;[?]     
@@ -309,8 +316,8 @@
     |       0x0ce30284      0900           nop                                  
     |       0x0ce30286      e780           mov.b r0,@(0x7,r14)                  
     |       0x0ce30288      e680           mov.b r0,@(0x6,r14)                  
-    |       0x0ce3028a      5790           mov.w @(0xAE,PC),r0                  
-    |       0x0ce3028c      d40e           mov.b r13,@(r0,r14)                  
+    |       0x0ce3028a      5790           mov.w @(0xAE,PC),r0    ;0x0ce3033c ; 0x01e9 
+    |       0x0ce3028c      d40e           mov.b r13,@(r0,r14)    ;write special move id
     |       0x0ce3028e      1670           add 0x16,r0                          
     |       0x0ce30290      d40e           mov.b r13,@(r0,r14)                  
     |       0x0ce30292      01e0           mov 0x01,r0                          
@@ -372,7 +379,7 @@
       |     0x0ce302fe      e780           mov.b r0,@(0x7,r14)                  
       |     0x0ce30300      01e4           mov 0x01,r4                          
       |     0x0ce30302      e680           mov.b r0,@(0x6,r14)                  
-      |     0x0ce30304      1a90           mov.w @(0x34,PC),r0                  
+      |     0x0ce30304      1a90           mov.w @(0x34,PC),r0    ;1e9             
       |     0x0ce30306      440e           mov.b r4,@(r0,r14)                   
       |     0x0ce30308      1670           add 0x16,r0                          
       |     0x0ce3030a      d40e           mov.b r13,@(r0,r14)                  
@@ -4145,15 +4152,14 @@
 0x0ce322d4  ffff ffff ffff ffff 0102 0002 ff02 0102
 0x0ce322e4  ffff ff02 0102 0102 ff02 ff02 ffff ffff
 
-;Input Data(Too lazy to fix up atm)
-0x0ce322f4  0500 0000 0000 0000 0004 0014 0010 0018
-0x0ce32304  0008 0003 0500 0000 0100 0000 0008 0018
-0x0ce32314  0010 0014 0004 6000 0300 0091 0200 0000
-0x0ce32324  0010 0018 0008 0003 0300 0081 0300 0000
-0x0ce32334  0010 0018 0008 6000 0300 0080 0400 0000
-0x0ce32344  0010 0014 0004 6000 0500 0010 0800 0000
-0x0ce32354  0004 0014 0010 0018 0008 6000 0300 0020
-0x0ce32364  0700 0000 0020 0028 0008 0003
+;Input Data
+0x0ce322f4  0500 0000 0000 0000 0004 0014 0010 0018 0008 0003 ;EM disruptor
+0x0ce32308  0500 0000 0100 0000 0008 0018 0010 0014 0004 6000 ;Hyper Grav
+0x0ce3231c  0300 0091 0200 0000 0010 0018 0008 0003 ;Shockwave
+0x0ce3232c  0300 0081 0300 0000 0010 0018 0008 6000 ;Tempest
+0x0ce3233c  0300 0080 0400 0000 0010 0014 0004 6000 ;Fight
+0x0ce3234c  0500 0010 0800 0000 0004 0014 0010 0018 0008 6000 ;Force Field
+0x0ce32360  0300 0020 0700 0000 0020 0028 0008 0003 ;Blast
 
 0x0ce32370  2000 2000
 0x0ce32374  2000 2000 2000 2000 2000 2000 2100 2000
@@ -4186,4 +4192,3 @@
 0x0ce324dc  0x0ce31780 0x0ce3199e 0x0ce31a0c 0x0ce31a46
 0x0ce324ec  0x0ce31adc 0x0ce31afe 0x0ce31b58 0x0ce31c9c
 0x0ce324fc  0x0ce31d16 0x0ce31d84 0x0ce31df0 0x0ce31e66
-
