@@ -1,0 +1,41 @@
+0x02015683 - 3s p1 palette id
+0x02015684 - 3s p2 palette id
+
+;==============================================
+;Palette Table 3s
+;0x61a7de8+(char_id*e)*a8+(pal_id*a8)
+;==============================================
+loading palette
+long0 pointer send to 0x40c00a0
+long1 palette ram location 
+long2 palette length
+
+;==============================================
+;Regardless of game
+;==============================================
+paletteram = 0x04080000
+
+to get every palette write
+wp 0x40c00a0,4,w
+
+;==============================================
+ppu thinks in words not bytes
+so location the ppu at 0x40c00a0
+needs to be divided by 2
+
+with 128 mb simms
+0x00400000 ~ 0x00c00000 = rom 30
+0x00c00000 ~ 0x01400000 = rom 31
+0x01400000 ~ 0x01c00000 = rom 40
+0x01c00000 ~ 0x02400000 = rom 41
+0x02400000 ~ 0x02c00000 = rom 50
+0x02c00000 ~ 0x03400000 = rom 51
+0x03400000 ~ 0x03c00000 = rom 60
+0x03c00000 ~ 0x04400000 = rom 61
+0x04400000 ~ 0x04c00000 = rom 70
+0x04c00000 ~ 0x05400000 = rom 71
+
+Example
+Ryu LP palette
+0x03300980 = rom 51 0x700980
+what the ppu wants is 0x19804C0
